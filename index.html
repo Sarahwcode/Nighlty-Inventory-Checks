@@ -10,28 +10,38 @@
     <h1>Nightly Inventory Checks</h1>
     <form action="" id="form">
       <label for="">What am I grateful for today?</label>
-      <input type="text" id="question" />
+      <input type="text" id="grateFullquestion" />
       <label for=""
         >How can I cultivate more gratitude and reduce resentment?</label
       >
-      <input type="text" id="question" />
+      <input type="text" id="reduceQuestion" />
       <input type="submit" id="submit" />
     </form>
-    <p id="answer"></p>
+    <p id="grateFullAnswer"></p>
+    <p id="reduceAnswer"></p>
     <script>
       function submitForm(event) {
         event.preventDefault();
-        let questionOne = document.getElementById("question");
-        let answerInput = document.getElementById("answer");
-        let valueOfQuestion = questionOne.value;
+        let questionOne = document.getElementById("grateFullquestion");
+        let answerInputOne = document.getElementById("grateFullAnswer");
+        let questionTwo = document.getElementById("reduceQuestion");
+        let answerInputTwo = document.getElementById("reduceAnswer");
+        let valueOfQuestionOne = questionOne.value;
+        let valueOfQuestionTwo = questionTwo.value;
 
-        localStorage.setItem("gratitudeAnswer", valueOfQuestion);
-        answerInput.innerHTML = valueOfQuestion;
+        localStorage.setItem("gratitudeAnswer", valueOfQuestionOne);
+        answerInputOne.innerHTML = valueOfQuestionOne;
+        localStorage.setItem("reducedAnswer", valueOfQuestionTwo);
+        answerInputTwo.innerHTML = valueOfQuestionTwo;
       }
       window.onload = function () {
-        let savedAnswer = localStorage.getItem("gratitudeAnswer");
-        if (savedAnswer) {
-          document.getElementById("answer").innerHTML = savedAnswer;
+        let savedGratitude = localStorage.getItem("gratitudeAnswer");
+        let savedReduced = localStorage.getItem("reducedAnswer");
+        if (savedGratitude) {
+          document.getElementById("gratitudeAnswer").innerHTML = savedGratitude;
+        }
+        if (savedReduced) {
+          document.getElementById("reducedAnswer").innerHTML = savedReduced;
         }
       };
       let form = document.getElementById("form");
