@@ -19,10 +19,18 @@
         >
         <input type="text" id="reduceQuestion" />
       </div>
+      <div>
+        <label for=""
+          >How can I be more mindful of the impact of my actions on
+          others?</label
+        >
+        <input type="text" id="impactQuestion" />
+      </div>
       <input type="submit" id="submit" />
     </form>
     <p id="grateFullAnswer"></p>
     <p id="reduceAnswer"></p>
+    <p id="impactAnswer"></p>
     <script>
       function submitForm(event) {
         event.preventDefault();
@@ -30,22 +38,32 @@
         let answerInputOne = document.getElementById("grateFullAnswer");
         let questionTwo = document.getElementById("reduceQuestion");
         let answerInputTwo = document.getElementById("reduceAnswer");
+        let questionThree = document.getElementById("impactQuestion");
+        let answerInputThree = document.getElementById("impactAnswer");
         let valueOfQuestionOne = questionOne.value;
         let valueOfQuestionTwo = questionTwo.value;
+        let valueOfQuestionThree = questionThree.value;
 
         localStorage.setItem("gratitudeAnswer", valueOfQuestionOne);
         answerInputOne.innerHTML = valueOfQuestionOne;
         localStorage.setItem("reducedAnswer", valueOfQuestionTwo);
         answerInputTwo.innerHTML = valueOfQuestionTwo;
+
+        localStorage.setItem("impactAnswer", valueOfQuestionThree);
+        answerInputTwo.innerHTML = valueOfQuestionThree;
       }
       window.onload = function () {
         let savedGratitude = localStorage.getItem("gratitudeAnswer");
         let savedReduced = localStorage.getItem("reducedAnswer");
+        let savedImpact = localStorage.getItem("impactAnswer");
         if (savedGratitude) {
           document.getElementById("gratitudeAnswer").innerHTML = savedGratitude;
         }
         if (savedReduced) {
           document.getElementById("reducedAnswer").innerHTML = savedReduced;
+        }
+        if (savedImpact) {
+          document.getElementById("impactAnswer").innerHTML = savedImpact;
         }
       };
       let form = document.getElementById("form");
