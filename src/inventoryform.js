@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './inventoryForm.css';
+import DisplayInput from "./displayinput";
 
 
 export default function InventoryForms() {
@@ -43,15 +44,9 @@ function submitChange (event) {
           </div>
           <input type="submit" id="submit" />
         </form>
-        <p>
-            {form.grateful}
-          </p>
-          <p>
-            {form.reduce}
-          </p>
-          <p>
-            {form.impact}
-          </p>
+        <div>
+       <DisplayInput display= {form}/>
+          </div>
         </div>
     );
 }
