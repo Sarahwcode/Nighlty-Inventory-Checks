@@ -43,7 +43,15 @@ function submitChange (event) {
           </div>
           <input type="submit" id="submit" />
         </form>
-        <p></p>
+        <p>
+            {form.grateful}
+          </p>
+          <p>
+            {form.reduce}
+          </p>
+          <p>
+            {form.impact}
+          </p>
         </div>
     );
 }
