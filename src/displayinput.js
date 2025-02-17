@@ -21,27 +21,22 @@ let handleSaveedInventory = () => {
 
     return (
 <div>
-        <p>
-            {props.display.grateful}
-          </p>
-          <p>
-          {props.display.reduce}
-          </p>
-          <p>
-             {props.display.impact}
-          </p>
+       
           <button onClick={handleSaveedInventory}>Save Inventory</button>
           <ul>
             {dailyInventory.map((inventory, index) => (
                 <li key={index}>
  <p>
-            {props.display.grateful}
+            {inventory.grateful}
           </p>
           <p>
-          {props.display.reduce}
+          {inventory.reduce}
           </p>
           <p>
-             {props.display.impact}
+             {inventory.impact}
+          </p>
+          <p>
+             {inventory.fear}
           </p>
                 </li>
             ))}

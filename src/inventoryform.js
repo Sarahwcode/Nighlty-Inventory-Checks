@@ -8,6 +8,7 @@ const [form, setForms] = useState({
     grateful: "",
     reduce: "",
     impact: "",
+    fear: "",
 });
 
 function submitChange (event) {
@@ -42,7 +43,13 @@ function submitChange (event) {
             >
             <input type="text" id="impact" value={form.impact} onChange={submitChange} />
           </div>
-          <input type="submit" id="submit" />
+          <div>
+            <label for=""
+              >Was I afraid today?</label
+            >
+            <input type="text" id="fear" value={form.fear} onChange={submitChange} />
+          </div>
+         
         </form>
         <div>
        <DisplayInput display= {form}/>
