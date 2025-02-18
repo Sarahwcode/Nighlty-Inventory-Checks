@@ -1,21 +1,45 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+import jsPDF from "jspdf";
 
 export default function DisplayInput(props) {
     const [dailyInventory, setDailyInventory] = useState([]);
 
-useEffect (() => {
-    let storedInventory = localStorage.getItem("dailyInventory");
-    if(storedInventory) {
-        setDailyInventory(JSON.parse(storedInventory));
+
+
+const handleSaveedInventory = () => {
+    if (props.display) { // Check if props.display exists
+        setDailyInventory(prevInventory => [...prevInventory, props.display]);
+    } else {
+        console.warn("No inventory data to save."); 
     }
-},[]);
+};
 
-useEffect (() => {
-  localStorage.setItem("dailyInventory", JSON.stringify(dailyInventory));
-},[dailyInventory]);
+const generatePDF = () => {
+    const doc = new jsPDF();
 
-let handleSaveedInventory = () => {
-    setDailyInventory([...dailyInventory,props.display]);
+    // Add title or header (optional)
+    doc.text("Daily Inventory", 10, 10);
+
+    let yPos = 20; // Starting Y position for the content
+
+    dailyInventory.forEach(inventory => {
+        doc.text(`Grateful: ${inventory.grateful}`, 10, yPos);
+        yPos += 10; // Increment Y position for the next line
+
+        doc.text(`Reduce: ${inventory.reduce}`, 10, yPos);
+        yPos += 10;
+
+        doc.text(`Impact: ${inventory.impact}`, 10, yPos);
+        yPos += 10;
+
+        doc.text(`Fear: ${inventory.fear}`, 10, yPos);
+        yPos += 10;
+
+        yPos += 5; // Add some extra spacing between entries
+    });
+
+
+    doc.save("daily_inventory.pdf");
 };
 
 
@@ -23,6 +47,7 @@ let handleSaveedInventory = () => {
 <div>
        
           <button onClick={handleSaveedInventory}>Save Inventory</button>
+          <button onClick={generatePDF}>Download PDF</button> {/* New button */}
           <ul>
             {dailyInventory.map((inventory, index) => (
                 <li key={index}>
@@ -44,3 +69,12 @@ let handleSaveedInventory = () => {
           </div>
     )
 }
+
+
+
+
+
+
+ 
+
+   
