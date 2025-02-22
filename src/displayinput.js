@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import jsPDF from "jspdf";
+import DateStamp from "./DateStamp";
+
 
 export default function DisplayInput(props) {
     const [dailyInventory, setDailyInventory] = useState([]);
@@ -47,7 +49,8 @@ const generatePDF = () => {
 <div>
        
           <button onClick={handleSaveedInventory}>Save Inventory</button>
-          <button onClick={generatePDF}>Download PDF</button> {/* New button */}
+          <button onClick={generatePDF}>Download PDF</button> 
+          <DateStamp/>
           <ul>
             {dailyInventory.map((inventory, index) => (
                 <li key={index}>
