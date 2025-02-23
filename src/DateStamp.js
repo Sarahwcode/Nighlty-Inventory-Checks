@@ -13,13 +13,20 @@ export default function DateStamp (){
         let year = newDate.getFullYear();
         let hour = newDate.getHours();
         let minute = newDate.getMinutes();
-        if (numberDay === 22) {
+        if (numberDay === 22 || numberDay === 2) {
  return `The date and time is ${days[day]} ${numberDay}nd ${months[month]} ${year} ${hour}:${minute}`; 
         }
+        else if ( numberDay === 1 || numberDay === 21 || numberDay === 31) {
+            return `The date and time is ${days[day]} ${numberDay}st ${months[month]} ${year} ${hour}:${minute}`; 
+        }
+        else if ( numberDay === 3 || numberDay === 23) {
+            return `The date and time is ${days[day]} ${numberDay}rd ${months[month]} ${year} ${hour}:${minute}`; 
+        }
+        else {
 
-let time = `The date and time is ${days[day]} ${numberDay} ${months[month]} ${year} ${hour}:${minute}`; 
+return `The date and time is ${days[day]} ${numberDay}th ${months[month]} ${year} ${hour}:${minute}`; }
 
-return time;
+
     }
 
     return (
