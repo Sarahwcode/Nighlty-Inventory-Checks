@@ -1,4 +1,5 @@
 import React from "react";
+import GenerateLoop from "./generateLoop";
 
 export default function DateStamp (){
 
@@ -31,7 +32,12 @@ return `The date and time is ${days[day]} ${numberDay}th ${months[month]} ${year
 
     return (
         <div>
+        <div>
         {date()}
+        </div>
+        <div>
+            <GenerateLoop/>
+        </div>
         </div>
     );
 }
