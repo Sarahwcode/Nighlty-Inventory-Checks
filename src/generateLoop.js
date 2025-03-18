@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 export default function GenerateLoop (){
-    let [great, setGreat] = useState("hello");
+    let [great, setGreat] = useState("");
     let [ShowResults, setShowResults] = useState(false);
     function loop() {
 let results = [];
@@ -9,6 +9,10 @@ let results = [];
             results.push(great);
         }
         return results;
+    }
+
+    function wordChange (event){
+        setGreat(event.target.value);
     }
 
     function enterWord(){
@@ -19,7 +23,7 @@ setShowResults(true);
             <div>
                 <form>
                     <label>Enter Your Name?</label>
-                    <input type="text" />
+                    <input type="text" onChange={wordChange} />
                 </form>
             </div>
             <button onClick={enterWord}>Show Results</button>
