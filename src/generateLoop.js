@@ -3,6 +3,7 @@ import React, {useState} from "react";
 export default function GenerateLoop (){
     let [great, setGreat] = useState("");
     let [ShowResults, setShowResults] = useState(false);
+    let affirmations = ["Stay Humble", "Be Grateful for the small Things", "Be present", "Look at how far you have come", "Love Yourself"];
     function loop() {
 let results = [];
         for(let i = 0; i < 5; i++){
@@ -14,6 +15,9 @@ let results = [];
     function wordChange (event){
         setGreat(event.target.value);
     }
+  
+    
+    
 
     function enterWord(){
 setShowResults(true);
@@ -31,9 +35,10 @@ setShowResults(true);
             
             <div>
             {loop().map((item, index) => (
-                <p key={index} >{item}</p>
+                <p key={index} >{item} {affirmations[index % affirmations.length]} </p>
             ))}
             </div> 
+        
             )}
     
         </div>
