@@ -30,39 +30,52 @@ function submitChange (event) {
 
     return (
         <div className="forms">
+        
         <h1>Nightly Inventory Checks</h1>
+        <div className="sectionOne" >
         <form className='form' onSubmit={submitForm}>
           <div>
             <label >What am I grateful for today?</label>
-            <input type="text" id="grateful" value={form.grateful} onChange={submitChange} />
+            <div>
+            <input type="text" id="grateful" value={form.grateful} onChange={submitChange} className="formBox" />
+            </div>
           </div>
           <div>
             <label 
               >How can I cultivate more gratitude and reduce resentment?</label
             >
-            <input type="text" id="reduce" value={form.reduce} onChange={submitChange} />
+            <div>
+            <input type="text" id="reduce" value={form.reduce} onChange={submitChange} className="formBox" />
+            </div>
           </div>
           <div>
             <label 
               >How can I be more mindful of the impact of my actions on
               others?</label
             >
-            <input type="text" id="impact" value={form.impact} onChange={submitChange} />
+            <div>
+            <input type="text" id="impact" value={form.impact} onChange={submitChange} className="formBox" />
+            </div>
           </div>
           <div>
             <label 
               >Was I afraid today?</label
             >
-            <input type="text" id="fear" value={form.fear} onChange={submitChange} />
+            <div>
+            <input type="text" id="fear" value={form.fear} onChange={submitChange} className="formBox" />
+            </div>
           </div>
           <div>
             <label 
               >What can I do tomorrow to enhance my creativity and passion?</label
             >
-            <input type="text" id="creative" value={form.creative} onChange={submitChange} />
+            <div>
+            <input type="text" id="creative" value={form.creative} onChange={submitChange} className="formBox" />
+            </div>
           </div>
-         
+          
         </form>
+        </div>
         <div>
        <DisplayInput display= {form}/>
           </div>

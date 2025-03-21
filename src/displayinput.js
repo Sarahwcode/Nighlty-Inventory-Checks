@@ -48,7 +48,8 @@ const generatePDF = () => {
 
 
     return (
-<div>
+<div className="sectionTwo">
+    
        
           <button onClick={handleSaveedInventory}>Save Inventory</button>
           <button onClick={generatePDF}>Download PDF</button> 
