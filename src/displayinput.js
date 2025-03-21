@@ -36,6 +36,8 @@ const generatePDF = () => {
 
         doc.text(`Fear: ${inventory.fear}`, 10, yPos);
         yPos += 10;
+        doc.text(`Fear: ${inventory.creative}`, 10, yPos);
+        yPos += 10;
 
         yPos += 5; // Add some extra spacing between entries
     });
@@ -65,6 +67,9 @@ const generatePDF = () => {
           </p>
           <p>
              {inventory.fear}
+          </p>
+          <p>
+             {inventory.creative}
           </p>
                 </li>
             ))}

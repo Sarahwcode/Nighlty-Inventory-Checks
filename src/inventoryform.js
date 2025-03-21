@@ -9,6 +9,7 @@ const [form, setForms] = useState({
     reduce: "",
     impact: "",
     fear: "",
+    creative: "",
 });
 
 function submitChange (event) {
@@ -53,6 +54,12 @@ function submitChange (event) {
               >Was I afraid today?</label
             >
             <input type="text" id="fear" value={form.fear} onChange={submitChange} />
+          </div>
+          <div>
+            <label 
+              >What can I do tomorrow to enhance my creativity and passion?</label
+            >
+            <input type="text" id="creative" value={form.creative} onChange={submitChange} />
           </div>
          
         </form>
