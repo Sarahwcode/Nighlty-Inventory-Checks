@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import jsPDF from "jspdf";
 import DateStamp from "./DateStamp";
+import WordIntergration from "./wordIntergration";
 
 
 export default function DisplayInput(props) {
@@ -75,6 +76,7 @@ const generatePDF = () => {
                 </li>
             ))}
           </ul>
+          <WordIntergration/>
           </div>
     )
 }
