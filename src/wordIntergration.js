@@ -30,12 +30,10 @@ console.log(response.data);
         <p><button onClick={lookForWord}>Look up Word</button></p>
         <div>
         {words && words.meanings && words.meanings.map((definition, index) => (
-          <p key={index}>
+          <div key={index}>
             <strong>{definition.partOfSpeech}:</strong> {definition.definition}
-            <ul>
-            <li>{definition.synonyms}</li>
-            </ul>
-          </p>
+            <div>{definition.synonyms}</div>
+          </div>
         ))}
       </div>
         </div>
