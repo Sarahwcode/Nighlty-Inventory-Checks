@@ -31,8 +31,13 @@ console.log(response.data);
         <div>
         {words && words.meanings && words.meanings.map((definition, index) => (
           <div key={index}>
-            <strong>{definition.partOfSpeech}:</strong> {definition.definition}
-            <div>{definition.synonyms}</div>
+            <strong>{definition.partOfSpeech}:</strong> {definition.definition} 
+            <div> {definition.synonyms && definition.synonyms.length > 0 && ( 
+                <div>
+                 {definition.synonyms.join(", ")}
+                 </div>
+            )}
+            </div>
           </div>
         ))}
       </div>
