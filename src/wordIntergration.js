@@ -22,7 +22,7 @@ console.log(response.data);
     return (
         <div>
             <form>
-            <label>Enter a word to gain to gain more understanding</label>
+            <label>Enter a word to gain more of a understanding:</label>
                 <input type="text" onChange={displayChange}></input>
                
                 

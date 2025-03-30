@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import jsPDF from "jspdf";
 import DateStamp from "./DateStamp";
 import WordIntergration from "./wordIntergration";
+import GenerateLoop from "./generateLoop";
+import './displayinput.css';
+
 
 
 export default function DisplayInput(props) {
@@ -52,8 +55,8 @@ const generatePDF = () => {
 <div className="sectionTwo">
     
        
-          <button onClick={handleSaveedInventory}>Save Inventory</button>
-          <button onClick={generatePDF}>Download PDF</button> 
+          <button onClick={handleSaveedInventory} className="buttons">Save Inventory</button>
+          <button onClick={generatePDF} className="buttons">Download PDF</button> 
           <DateStamp/>
           <ul>
             {dailyInventory.map((inventory, index) => (
@@ -76,6 +79,7 @@ const generatePDF = () => {
                 </li>
             ))}
           </ul>
+             <GenerateLoop/>
           <WordIntergration/>
           </div>
     )

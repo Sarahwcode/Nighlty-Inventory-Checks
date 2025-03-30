@@ -16,9 +16,10 @@ div {
     border-radius: 30px;
     background-color: beige;
   }
- .formBox {
+ .formBox{
   padding: 20px 30px;
   border-radius: 10px;
+  margin-top: 10px;
  }
  
   
