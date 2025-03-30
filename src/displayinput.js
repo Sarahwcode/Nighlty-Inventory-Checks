@@ -55,10 +55,10 @@ const generatePDF = () => {
 <div className="sectionTwo">
     
        
-          <button onClick={handleSaveedInventory} className="buttons">Save Inventory</button>
+          <button onClick={handleSaveedInventory} className="buttons">Display Inventory</button>
           <button onClick={generatePDF} className="buttons">Download PDF</button> 
           <DateStamp/>
-          <ul>
+          <ul className="displayInventory">
             {dailyInventory.map((inventory, index) => (
                 <li key={index}>
  <p>
