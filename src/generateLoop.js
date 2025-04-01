@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './generateLoops.css';
 
 export default function GenerateLoop (){
     let [great, setGreat] = useState("");
@@ -34,7 +35,7 @@ let results = [];
 setShowResults(true);
     }
     return (
-        <div>
+        <div className="genrateLoops">
             <div>
                 <form>
                     <label>Enter Your Name?</label>
