@@ -34,7 +34,7 @@ console.log(response.data);
             <strong>{definition.partOfSpeech}:</strong> {definition.definition} 
             <div> {definition.synonyms && definition.synonyms.length > 0 && ( 
                 <div>
-                 {definition.synonyms.join(", ")}
+                 <strong>Synonyms: </strong>{definition.synonyms.join(", ")}
                  </div>
             )}
             </div>
