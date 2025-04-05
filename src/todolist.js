@@ -3,14 +3,23 @@ import React from "react";
 export default function ToDoList () {
 
     function listItems (){
-let listedItems = ["Buy Food", "Exercise", "Read my book", "Study"];
+let listedItems = [ {
+    Morning: "",
+    Afternoon: "Exersise",
+    Evening: ""}, {
+    Work: "",
+    Health: "",
+    Exercise: "",
+    Food: ""
+    }]
+    ;
 return listedItems;
     }
     return (
     <div>
         {listItems().map((items, index) => (
             <p key={index}>
-                {items}
+                {items.Afternoon}
             </p>
         )  )}
     </div>);
