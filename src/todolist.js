@@ -17,11 +17,21 @@ return listedItems;
     }
     return (
     <div>
+        <div>
+            <form>
+                <label>Enter you to do list for the Morning?</label>
+                <input type="text" >
+                
+                </input>
+            </form>
+        </div>
+        <div>
         {listItems().map((items, index) => (
             <p key={index}>
                 {items.Afternoon}
             </p>
         )  )}
+        </div>
     </div>);
 }
 /*Create a list component: Create a new component called "List" that will display the todo list items. You can use an array of objects to store the list items and use the map() function to render each item in the list.
