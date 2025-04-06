@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function ToDoList () {
+    let [addList, setAddList] = useState("")
 
     function listItems (){
 let listedItems = [ {
@@ -15,16 +16,28 @@ let listedItems = [ {
     ;
 return listedItems;
     }
+
+    function onEnter(event){
+    event.preventDefault();
+    }
+    function addedList (event){
+    setAddList(event.target.value);
+    }
     return (
+       
     <div>
+       
         <div>
+            
             <form>
-                <label>Enter you to do list for the Morning?</label>
-                <input type="text" >
+                <label onSubmit={onEnter}>Enter you to do list for the Morning?</label>
+                <input type="text" onChange={addedList} >
                 
                 </input>
             </form>
+        
         </div>
+        
         <div>
         {listItems().map((items, index) => (
             <p key={index}>
@@ -32,6 +45,7 @@ return listedItems;
             </p>
         )  )}
         </div>
+        
     </div>);
 }
 /*Create a list component: Create a new component called "List" that will display the todo list items. You can use an array of objects to store the list items and use the map() function to render each item in the list.
