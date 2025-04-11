@@ -1,37 +1,46 @@
 import React, {useState} from "react";
 
 export default function ToDoList () {
-    let [addList, setAddList] = useState("")
-
-    function listItems (){
-let listedItems = [ {
-    Morning: "",
-    Afternoon: "",
-    Evening: ""}, {
-    Work: "",
+    let [addList, setAddList] = useState({
+        Morning: "",
+        Afternoon: "",
+        Evening: "",
+        Work: "",
     Health: "",
     Exercise: "",
     Food: ""
-    }]
-    ;
-return listedItems;
-    }
+    })
+
+    const [input, setInput] = useState("");
+    let lists = Object.keys(addList);
+    let[category, setCategory] = useState(0);
+
+    function addedList (event) {
+        setInput(event.target.value);
+        }
 
     function onEnter(event){
     event.preventDefault();
+    setAddList((prevList) => ({
+        ...prevList,
+        [lists[category]]: input,
+      }));
+      setCategory((prevCategory) => (prevCategory + 1) % lists.length);
+      setInput("");
+
     }
-    function addedList (event){
-    setAddList(event.target.value);
-    }
+    
+
+
     return (
        
     <div>
        
         <div>
         <h2>Your to do list for today</h2>
-            <form>
-                <label onSubmit={onEnter}>Enter a item you need to do today for each catagory: </label>
-                <input type="text" onChange={addedList} >
+            <form onSubmit={onEnter}>
+                <label>Enter a item you need to do today for {lists[category]} each catagory: </label>
+                <input type="text" value={input} onChange={addedList} >
                 
                 </input>
             </form>
@@ -39,31 +48,9 @@ return listedItems;
         </div>
        
         <div>
-        {listItems().map((items, index) => (
-            <p key={index}>
-                <div>
-                 Morning:{items.Morning}
-                 </div>
-                 <div>
-                Afternoon: {items.Afternoon}
-                </div>
-                <div>
-                Evening: {items.Evening}
-                </div>
-                <div>
-            {items.Work}
-
-                </div>
-                <div>
-                {items.Health}
-                </div>
-            
-                <div>
-                {items.Exercise}
-                </div>
-                <div>
-                {items.Food}
-                </div>
+        {Object.entries(addList).map((key, value) => (
+            <p key={key}>
+               {key}: {value}
             </p>
         )  )}
         </div>
