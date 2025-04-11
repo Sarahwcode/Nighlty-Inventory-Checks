@@ -6,7 +6,7 @@ export default function ToDoList () {
     function listItems (){
 let listedItems = [ {
     Morning: "",
-    Afternoon: "Exersise",
+    Afternoon: "",
     Evening: ""}, {
     Work: "",
     Health: "",
@@ -28,20 +28,42 @@ return listedItems;
     <div>
        
         <div>
-            
+        <h2>Your to do list for today</h2>
             <form>
-                <label onSubmit={onEnter}>Enter you to do list for the Morning?</label>
+                <label onSubmit={onEnter}>Enter a item you need to do today for each catagory: </label>
                 <input type="text" onChange={addedList} >
                 
                 </input>
             </form>
         
         </div>
-        
+       
         <div>
         {listItems().map((items, index) => (
             <p key={index}>
-                {items.Afternoon}
+                <div>
+                 Morning:{items.Morning}
+                 </div>
+                 <div>
+                Afternoon: {items.Afternoon}
+                </div>
+                <div>
+                Evening: {items.Evening}
+                </div>
+                <div>
+            {items.Work}
+
+                </div>
+                <div>
+                {items.Health}
+                </div>
+            
+                <div>
+                {items.Exercise}
+                </div>
+                <div>
+                {items.Food}
+                </div>
             </p>
         )  )}
         </div>
