@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 export default function ToDoList () {
     let [addList, setAddList] = useState({
-        Morning: "",
-        Afternoon: "",
+        Morning: " ",
+        Afternoon: " ",
         Evening: "",
         Work: "",
     Health: "",
@@ -50,7 +50,7 @@ export default function ToDoList () {
         <div>
         {Object.entries(addList).map((key, value) => (
             <p key={key}>
-               {key}: {value}
+             <strong>{value + 1}.</strong> <span>{key}</span>
             </p>
         )  )}
         </div>
