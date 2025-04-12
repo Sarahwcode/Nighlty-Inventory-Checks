@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 export default function ToDoList () {
     let [addList, setAddList] = useState({
-        Morning: " ",
-        Afternoon: " ",
+        Morning: "",
+        Afternoon: "",
         Evening: "",
         Work: "",
     Health: "",
@@ -23,7 +23,7 @@ export default function ToDoList () {
     event.preventDefault();
     setAddList((prevList) => ({
         ...prevList,
-        [lists[category]]: input,
+        [lists[category]]:  input,
       }));
       setCategory((prevCategory) => (prevCategory + 1) % lists.length);
       setInput("");
@@ -48,15 +48,17 @@ export default function ToDoList () {
         </div>
        
         <div>
-        {Object.entries(addList).map((key, value) => (
+        {Object.entries(addList).map(([key, value], index) => (
             <p key={key}>
-             <strong>{value + 1}.</strong> <span>{key}</span>
+             <strong>{index + 1}.</strong> <span>{key}: {value} </span> 
             </p>
         )  )}
         </div>
         
     </div>);
 }
+
+
 /*Create a list component: Create a new component called "List" that will display the todo list items. You can use an array of objects to store the list items and use the map() function to render each item in the list.
 
 Add form to add new items: Create a form that allows users to add new todo list items. You can use the onChange event to track changes to the form input and the onSubmit event to handle the form submission.
