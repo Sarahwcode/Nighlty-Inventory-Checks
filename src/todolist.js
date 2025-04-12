@@ -41,6 +41,7 @@ export default function ToDoList () {
             <form onSubmit={onEnter}>
                 <label>Enter a item you need to do today for {lists[category]} each catagory: </label>
                 <input type="text" value={input} onChange={addedList} >
+               
                 
                 </input>
             </form>
@@ -50,7 +51,8 @@ export default function ToDoList () {
         <div>
         {Object.entries(addList).map(([key, value], index) => (
             <p key={key}>
-             <strong>{index + 1}.</strong> <span>{key}: {value} </span> 
+             <strong>{index + 1}.</strong> <span>{key}: {value}  </span> 
+             <input type="checkbox"/>
             </p>
         )  )}
         </div>
