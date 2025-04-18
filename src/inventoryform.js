@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import './inventoryForm.css';
 import DisplayInput from "./displayinput";
+import GenerateLoop from "./generateLoop";
+import ToDoList from "./todolist";
 
 
 export default function InventoryForms() {
@@ -30,7 +32,9 @@ function submitChange (event) {
 
     return (
         <div className="forms">
-        
+          <h1>Welling Being App</h1>
+         <GenerateLoop/>
+          <ToDoList/>
         <h1>Nightly Inventory Checks</h1>
         <div className="sectionOne" >
         <form className='form' onSubmit={submitForm}>

@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import jsPDF from "jspdf";
 import DateStamp from "./DateStamp";
 import WordIntergration from "./wordIntergration";
-import GenerateLoop from "./generateLoop";
-import ToDoList from "./todolist";
+
+
 import './displayinput.css';
 
 
@@ -81,8 +81,8 @@ const generatePDF = () => {
                 </li>
             ))}
           </ul>
-             <GenerateLoop/>
-             <ToDoList/>
+            
+             
           <WordIntergration/>
           </div>
     )
