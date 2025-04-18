@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './generateLoops.css';
 
+
 export default function GenerateLoop (){
     let [great, setGreat] = useState("");
     let [ShowResults, setShowResults] = useState(false);

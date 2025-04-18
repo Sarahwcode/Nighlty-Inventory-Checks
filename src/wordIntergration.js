@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import Calculator from "./Calculator";
 
 export default function WordIntergration(){
 let [words, setWords] = useState(null);
@@ -41,6 +42,7 @@ console.log(response.data);
           </div>
         ))}
       </div>
+      <Calculator />
         </div>
     )
 
