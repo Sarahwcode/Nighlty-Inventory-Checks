@@ -11,7 +11,7 @@ setWords(response.data);
 console.log(response.data);
     }
     function displayChange (event) {
-        setDisplay(event.target.value)
+        setDisplay(event.target.value);
     } 
 
     function lookForWord(){
