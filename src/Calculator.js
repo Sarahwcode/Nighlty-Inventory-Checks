@@ -2,18 +2,17 @@ import React, {useState} from "react";
 
 
 export default function Calculator (){
-    let [sums, setSums] = useState("");
+    let [sums, setSums] = useState(0);
 
-    function calculator () {
-return 1 + 1;
+    function calculator (operation) {
+ if (operation === "+")
+    setSums();
     }
-function pressPlus (event) {
-setSums(event.target.value);
-}
+
     return (
         <div>
-            <button onClick={sums}>+</button>
-<input type="text" onChange={pressPlus}></input>
+            <button onClick={() => calculator("+")}>+</button>
+<input value={sums}/>
         </div>
     )
 }
