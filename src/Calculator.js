@@ -59,9 +59,9 @@ export default function Calculator (){
         <button onClick={calculator}>=</button>
         <button onClick={clear}>c</button>
             <button onClick={() => handleNumberClick("1")}>1</button> <button onClick={() => handleNumberClick("2")}>2</button> <button>3</button> 
-            <div><button>4</button> <button>5</button><button>6</button></div>
-            <div><button>6</button> <button>7</button><button>9</button></div>
-            <div><button>0</button></div>
+            <div><button onClick={() => handleNumberClick("4")}>4</button> <button  onClick={() => handleNumberClick("5")}>5</button><button  onClick={() => handleNumberClick("6")}>6</button></div>
+            <div><button  onClick={() => handleNumberClick("7")}>7</button> <button onClick={() => handleNumberClick("8")}>8</button><button  onClick={() => handleNumberClick("9")}>9</button></div>
+            <div><button  onClick={() => handleNumberClick("0")}>0</button></div>
 
 <input value={sums} readOnly /> {/* Use readOnly for display */}
       <div>
