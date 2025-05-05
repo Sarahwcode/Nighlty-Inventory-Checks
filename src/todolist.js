@@ -14,6 +14,28 @@ export default function ToDoList () {
     const [input, setInput] = useState("");
     let lists = Object.keys(addList);
     let[category, setCategory] = useState(0);
+   
+
+    function removeLastItem () {
+      
+            // Determine the index of the category that was just added to
+            const lastAddedIndex = (category - 1 + lists.length) % lists.length;
+            const lastAddedCategory = lists[lastAddedIndex];
+        
+            // Create a copy of the current addList state
+            const updatedList = { ...addList };
+        
+            // Remove the value for the last added category
+            updatedList[lastAddedCategory] = "";
+        
+            // Update the state
+            setAddList(updatedList);
+        
+            // Optionally, you might want to move the category back by one
+            // so the next addition overwrites the one you just removed.
+            setCategory(lastAddedIndex);
+          
+    }
 
     function addedList (event) {
         setInput(event.target.value);
@@ -41,11 +63,10 @@ export default function ToDoList () {
             <form onSubmit={onEnter}>
                 <label>Enter a item you need to do today for {lists[category]} each catagory: </label>
                 <input type="text" value={input} onChange={addedList} >
-               
-                
-                </input>
+              </input>
+
             </form>
-        
+         <button onClick={removeLastItem}>Remove Last Item</button>
         </div>
        
         <div>
