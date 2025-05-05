@@ -35,6 +35,9 @@ export default function Calculator (){
         case "*":
           setSums(num1 * num2);
           break;
+        case "/":
+          setSums(num1 / num2);
+          break;
         default:
           break;
       }
@@ -54,14 +57,14 @@ export default function Calculator (){
     return (
         <div>
             <div><button onClick={() => handleOperationClick("+")}>+</button>
-            <button onClick={() => handleOperationClick("-")}>-</button>
-        <button onClick={() => handleOperationClick("*")}>x</button></div>
-        <button onClick={calculator}>=</button>
-        <button onClick={clear}>c</button>
-            <button onClick={() => handleNumberClick("1")}>1</button> <button onClick={() => handleNumberClick("2")}>2</button> <button>3</button> 
-            <div><button onClick={() => handleNumberClick("4")}>4</button> <button  onClick={() => handleNumberClick("5")}>5</button><button  onClick={() => handleNumberClick("6")}>6</button></div>
-            <div><button  onClick={() => handleNumberClick("7")}>7</button> <button onClick={() => handleNumberClick("8")}>8</button><button  onClick={() => handleNumberClick("9")}>9</button></div>
-            <div><button  onClick={() => handleNumberClick("0")}>0</button></div>
+             <button onClick={() => handleOperationClick("-")}>-</button>
+             <button onClick={() => handleOperationClick("*")}>x</button>
+             <button onClick={() => handleOperationClick("/")}>/</button>
+       </div>
+            <div><button onClick={() => handleNumberClick("1")}>1</button> <button onClick={() => handleNumberClick("2")}>2</button> <button>3</button></div>
+            <div><button onClick={() => handleNumberClick("4")}>4</button> <button  onClick={() => handleNumberClick("5")}>5</button> <button  onClick={() => handleNumberClick("6")}>6</button> </div>
+            <div><button  onClick={() => handleNumberClick("7")}>7</button> <button onClick={() => handleNumberClick("8")}>8</button> <button  onClick={() => handleNumberClick("9")}>9</button> </div>
+            <div><button  onClick={() => handleNumberClick("0")}>0</button> <button onClick={calculator}>=</button> <button onClick={clear}>c</button></div>
 
 <input value={sums} readOnly /> {/* Use readOnly for display */}
       <div>
