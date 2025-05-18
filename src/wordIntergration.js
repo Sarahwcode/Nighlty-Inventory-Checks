@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import Calculator from "./Calculator";
+import "./wordIntergration.css";
 
 export default function WordIntergration(){
 let [words, setWords] = useState(null);
@@ -22,6 +23,7 @@ console.log(response.data);
 
     return (
         <div>
+            <div className="wordIntergration">
             <form>
             <label>Enter a word to gain more of a understanding:</label>
                 <input type="text" onChange={displayChange}></input>
@@ -41,6 +43,7 @@ console.log(response.data);
             </div>
           </div>
         ))}
+        </div>
       </div>
       <Calculator />
         </div>
