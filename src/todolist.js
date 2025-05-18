@@ -19,11 +19,11 @@ export default function ToDoList () {
     function removeLastItem () {
       
             // Determine the index of the category that was just added to
-            const lastAddedIndex = (category - 1 + lists.length) % lists.length;
-            const lastAddedCategory = lists[lastAddedIndex];
+            let lastAddedIndex = (category - 1 + lists.length) % lists.length;
+            let lastAddedCategory = lists[lastAddedIndex];
         
             // Create a copy of the current addList state
-            const updatedList = { ...addList };
+            let updatedList = { ...addList };
         
             // Remove the value for the last added category
             updatedList[lastAddedCategory] = "";
@@ -31,8 +31,7 @@ export default function ToDoList () {
             // Update the state
             setAddList(updatedList);
         
-            // Optionally, you might want to move the category back by one
-            // so the next addition overwrites the one you just removed.
+          
             setCategory(lastAddedIndex);
           
     }
