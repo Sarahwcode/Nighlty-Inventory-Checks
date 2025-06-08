@@ -45,7 +45,7 @@ export default function Calculator (){
       // Reset for the next calculation
       setFirstNumber(sums.toString());
       setSecondNumber("");
-      setOperation();
+      setOperation(null);
     }}
 
   function clear(){
@@ -53,6 +53,25 @@ export default function Calculator (){
        setFirstNumber("");
         setSecondNumber("");
         setOperation(null);
+    }
+
+    function displayValue () {
+      if (!sums === 0 && !operation && !secondNumber) {
+        return sums;
+      }
+      else if (secondNumber) {
+        return `${firstNumber} ${operation} ${secondNumber}`;
+      }
+      else if (operation) {
+        return `${firstNumber} ${operation}`;
+      }
+      else if (firstNumber) {
+        return firstNumber;
+      }
+      else {
+        return sums;
+      }
+
     }
 
     return (
@@ -67,7 +86,7 @@ export default function Calculator (){
              <button onClick={() => handleOperationClick("*")}>x</button>
              <button onClick={() => handleOperationClick("/")}>/</button>
        </div>
-<input type="text" value={`${firstNumber} ${operation} ${secondNumber} ${sums}`} readOnly /> 
+<input type="text" value={displayValue()} readOnly /> 
 
       <div>
         First Number: {firstNumber}
