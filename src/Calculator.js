@@ -26,23 +26,25 @@ export default function Calculator (){
     const num2 = parseFloat(secondNumber);
 
     if (operation && !isNaN(num1) && !isNaN(num2)) {
+      let result;
       switch (operation) {
         case "+":
-          setSums(num1 + num2);
+          result = num1 + num2;
           break;
         case "-":
-          setSums(num1 - num2);
+          result = num1 - num2;
           break;
         case "*":
-          setSums(num1 * num2);
+          result = num1 * num2;
           break;
         case "/":
-          setSums(num1 / num2);
+          result = num1 / num2;
           break;
         default:
           break;
       }
       // Reset for the next calculation
+      setSums(result);
       setFirstNumber(sums.toString());
       setSecondNumber("");
       setOperation(null);
