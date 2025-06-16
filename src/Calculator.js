@@ -1,8 +1,9 @@
 import React, {useState} from "react";
+import "./Calculator.css";
 
 
 export default function Calculator (){
-    let [display, setDisplay] = useState(0);
+    let [display, setDisplay] = useState("");
     let [firstNumber, setFirstNumber] = useState("");
     let [secondNumber, setSecondNumber] = useState("");
     let [operation, setOperation] = useState(null);
@@ -10,15 +11,23 @@ export default function Calculator (){
 
 
     function handleNumberClick(number) {
-        if (waitingForSecondNumber)
-        setSecondNumber(prev => prev + number);
-    else {
-        setFirstNumber(prev => prev + number);
-        setDisplay (prev => {
-          return prev === "0" ? number : prev + number;
-        });
-    }
-    }
+        if (waitingForSecondNumber) {
+
+    setSecondNumber(prev => {
+      const newSecondNumber = prev + number;
+      setDisplay(newSecondNumber); // Update display to show only the second number
+      return newSecondNumber;
+  });
+} else {
+  setFirstNumber(prev => {
+      // If the display is "0" (initial state or after clear), replace it
+      // otherwise append the number.
+      const newFirstNumber = prev === "" && number === "0" ? "0" : prev + number; // Handle leading zero
+      setDisplay(newFirstNumber); // Update display to show the first number
+      return newFirstNumber;
+  });
+}
+}
 
     function handleOperationClick(selectedOperation){
       if (firstNumber === "") return; // Don't allow operation if no first number
@@ -85,7 +94,7 @@ export default function Calculator (){
       
       // Reset for the next calculation
       function clear(){
-      setDisplay("0");
+      setDisplay("");
       setFirstNumber("");
       setSecondNumber("");
       setOperation(null);
@@ -99,14 +108,22 @@ export default function Calculator (){
     return (
         <div>
            
-            <div><button onClick={() => handleNumberClick("1")} value={firstNumber}>1</button> <button onClick={() => handleNumberClick("2")}>2</button> <button>3</button></div>
-            <div><button onClick={() => handleNumberClick("4")}>4</button> <button  onClick={() => handleNumberClick("5")}>5</button> <button  onClick={() => handleNumberClick("6")}>6</button> </div>
-            <div><button  onClick={() => handleNumberClick("7")}>7</button> <button onClick={() => handleNumberClick("8")}>8</button> <button  onClick={() => handleNumberClick("9")}>9</button> </div>
-            <div><button  onClick={() => handleNumberClick("0")}>0</button> <button onClick={calculator}>=</button> <button onClick={clear}>c</button></div>
-            <div><button onClick={() => handleOperationClick("+")}>+</button>
-             <button onClick={() => handleOperationClick("-")}>-</button>
-             <button onClick={() => handleOperationClick("*")}>x</button>
-             <button onClick={() => handleOperationClick("/")}>/</button>
+            <div><button onClick={() => handleNumberClick("1")} className="calculatorButtons">1</button>
+             <button onClick={() => handleNumberClick("2")} className="calculatorButtons">2</button>
+              <button onClick={() => handleNumberClick("3")} className="calculatorButtons">3</button></div>
+            <div><button onClick={() => handleNumberClick("4")} className="calculatorButtons">4</button> 
+            <button  onClick={() => handleNumberClick("5")} className="calculatorButtons">5</button>
+             <button  onClick={() => handleNumberClick("6")} className="calculatorButtons">6</button> </div>
+            <div><button  onClick={() => handleNumberClick("7")} className="calculatorButtons">7</button> 
+            <button onClick={() => handleNumberClick("8")} className="calculatorButtons">8</button>
+             <button  onClick={() => handleNumberClick("9")} className="calculatorButtons">9</button> </div>
+            <div><button  onClick={() => handleNumberClick("0")} className="calculatorButtons">0</button> 
+            <button onClick={calculator} className="calculatorButtons">=</button>
+             <button onClick={clear} className="calculatorButtons">c</button></div>
+            <div><button onClick={() => handleOperationClick("+")} className="calculatorButtons">+</button>
+             <button onClick={() => handleOperationClick("-")} className="calculatorButtons">-</button>
+             <button onClick={() => handleOperationClick("*")} className="calculatorButtons">x</button>
+             <button onClick={() => handleOperationClick("/")} className="calculatorButtons">/</button>
        </div>
 <input type="text" value={display} readOnly /> 
 
