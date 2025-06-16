@@ -2,24 +2,45 @@ import React, {useState} from "react";
 
 
 export default function Calculator (){
-    let [sums, setSums] = useState(0);
+    let [display, setDisplay] = useState(0);
     let [firstNumber, setFirstNumber] = useState("");
     let [secondNumber, setSecondNumber] = useState("");
     let [operation, setOperation] = useState(null);
+    let [waitingForSecondNumber, setWaitingForSecondNumber] = useState(false);
 
 
     function handleNumberClick(number) {
-        if (!operation)
-        setFirstNumber(prev => prev + number);
-    else {
+        if (waitingForSecondNumber)
         setSecondNumber(prev => prev + number);
+    else {
+        setFirstNumber(prev => prev + number);
+        setDisplay (prev => {
+          return prev === "0" ? number : prev + number;
+        });
     }
     }
 
     function handleOperationClick(selectedOperation){
-        setOperation(selectedOperation);
+      if (firstNumber === "") return; // Don't allow operation if no first number
         
-    }
+      // If an operation was already selected and we have a second number,
+      // perform the calculation before setting the new operation.
+      if (operation && secondNumber) {
+          calculator(); // Perform the previous calculation
+          // After calculation, the result will be set to firstNumber,
+          // so we can immediately set the new operation.
+          setOperation(selectedOperation);
+          setDisplay(prev => `${parseFloat(prev)} ${selectedOperation}`); // Display result and new operator
+          setWaitingForSecondNumber(true); // Still waiting for the next number
+          setSecondNumber(""); // Clear second number for next input
+      } else {
+          setOperation(selectedOperation);
+          setWaitingForSecondNumber(true);
+          setDisplay(`${firstNumber} ${selectedOperation}`);
+      }
+  }
+        
+    
 
     function calculator () {
     const num1 = parseFloat(firstNumber);
@@ -37,44 +58,43 @@ export default function Calculator (){
         case "*":
           result = num1 * num2;
           break;
-        case "/":
-          result = num1 / num2;
-          break;
+          case "/":
+            if (num2 === 0) {
+                alert("Cannot divide by zero!");
+                clear();
+                return;
+            }
+            result = num1 / num2;
+            break;
         default:
-          break;
-      }
+            break;
+    }
+    // Update display with the result
+    setDisplay(result.toString());
+    // Set the result as the new firstNumber for chained operations
+    setFirstNumber(result.toString());
+    // Clear secondNumber and operation for the next input
+    setSecondNumber("");
+    setOperation(null);
+    setWaitingForSecondNumber(false); // Not waiting for a second number anymore
+} else if (firstNumber !== "" && !isNaN(num1) && !operation) {
+    // If only a first number is entered and '=' is pressed, just display it
+    setDisplay(firstNumber);
+}
+}
+      
       // Reset for the next calculation
-      setSums(result);
-      setFirstNumber(sums.toString());
+      function clear(){
+      setDisplay("0");
+      setFirstNumber("");
       setSecondNumber("");
       setOperation(null);
-    }}
-
-  function clear(){
-      setSums(0);
-       setFirstNumber("");
-        setSecondNumber("");
-        setOperation(null);
+      setWaitingForSecondNumber(false);
     }
+    
 
-    function displayValue () {
-      if (!sums === 0 && !operation && !secondNumber) {
-        return sums;
-      }
-      else if (secondNumber) {
-        return `${firstNumber} ${operation} ${secondNumber}`;
-      }
-      else if (operation) {
-        return `${firstNumber} ${operation}`;
-      }
-      else if (firstNumber) {
-        return firstNumber;
-      }
-      else {
-        return sums;
-      }
 
-    }
+    
 
     return (
         <div>
@@ -88,7 +108,7 @@ export default function Calculator (){
              <button onClick={() => handleOperationClick("*")}>x</button>
              <button onClick={() => handleOperationClick("/")}>/</button>
        </div>
-<input type="text" value={displayValue()} readOnly /> 
+<input type="text" value={display} readOnly /> 
 
       <div>
         First Number: {firstNumber}
@@ -98,5 +118,6 @@ export default function Calculator (){
         Operation: {operation}
       </div>
         </div>
-    )
+    
+)
 }
