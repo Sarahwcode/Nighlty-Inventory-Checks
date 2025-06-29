@@ -26,7 +26,7 @@ console.log(response.data);
             <div className="wordIntergration">
             <form>
             <label>Enter a word to gain more of a understanding:</label>
-                <input type="text" onChange={displayChange}></input>
+                <input type="text" onChange={displayChange} className="formBox"></input>
                
                 
             </form>

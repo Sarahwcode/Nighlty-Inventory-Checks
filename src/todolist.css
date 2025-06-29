@@ -1,0 +1,16 @@
+.formBox{
+  
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    max-width: 50%;
+    
+   }
+   .removeButton {
+    margin-top: 10px;
+    padding: 10px 30px;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px 2px rgb(228, 101, 122);
+  border: 1px solid #f13b8a;
+  max-width: 100%;
+   }

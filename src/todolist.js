@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./todolist.css";
 
 export default function ToDoList () {
     let [addList, setAddList] = useState({
@@ -61,11 +62,11 @@ export default function ToDoList () {
         <h2>Your to do list for today</h2>
             <form onSubmit={onEnter}>
                 <label>Enter a item you need to do today for {lists[category]} each catagory: </label>
-                <input type="text" value={input} onChange={addedList} >
+                <input type="text" value={input} onChange={addedList} className="formBox">
               </input>
 
             </form>
-         <button onClick={removeLastItem}>Remove Last Item</button>
+         <button onClick={removeLastItem} className="removeButton">Remove Last Item</button>
         </div>
        
         <div>

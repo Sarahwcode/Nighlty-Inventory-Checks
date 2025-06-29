@@ -1,6 +1,6 @@
 .wordIntergration {
     border: 1px solid black;
-    width: 60%;
+    max-width: 100%;
     display: block;
     margin: 0 auto;
     padding: 20px 30px;
