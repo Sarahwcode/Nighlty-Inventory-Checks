@@ -45,7 +45,7 @@ function submitChange (event) {
             </div>
           </div>
           <div>
-            <label 
+            <label  
               >How can I cultivate more gratitude and reduce resentment?</label
             >
             <div>

@@ -1,9 +1,13 @@
 .genrateLoops {
     border: 1px solid black;
-    width: 60%;
+    
     display: block;
     margin: 0 auto;
     padding: 20px 30px;
     border-radius: 30px;
     background-color: beige;
+    max-width: 100%;
+}
+.textBox{
+    max-width: 100%;
 }

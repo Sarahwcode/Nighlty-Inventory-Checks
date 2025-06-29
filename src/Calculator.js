@@ -106,7 +106,7 @@ export default function Calculator (){
     
 
     return (
-        <div>
+        <div className="calculator"> 
            
             <div><button onClick={() => handleNumberClick("1")} className="calculatorButtons">1</button>
              <button onClick={() => handleNumberClick("2")} className="calculatorButtons">2</button>

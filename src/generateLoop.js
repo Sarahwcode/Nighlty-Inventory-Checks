@@ -40,10 +40,10 @@ setShowResults(true);
             <div>
                 <form>
                     <label>Enter Your Name?</label>
-                    <input type="text" onChange={wordChange} />
+                    <input type="text" onChange={wordChange} className="textBox" />
                 </form>
             </div>
-            <button onClick={enterWord}>Show Results</button>
+            <button onClick={enterWord} className="textBox">Show Results</button>
       {ShowResults && (
             
             <div>

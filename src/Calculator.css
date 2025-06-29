@@ -1,10 +1,17 @@
+.calculator {
+    max-width: 100%;
+}
+
 .calculatorButtons {
     padding: 10px 20px;
     margin: 5px;
     border-radius: 2px;
-    box-shadow: aliceblue;
+    box-shadow: 2px 2px 2px 2px rgb(228, 101, 122);
+    border: 1px solid #f13b8a;
 }
 .valueDisplay {
     padding: 20px 30px;
-    font-size: 20px;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px 2px rgb(228, 101, 122);
+  border: 1px solid #f13b8a;
 }
