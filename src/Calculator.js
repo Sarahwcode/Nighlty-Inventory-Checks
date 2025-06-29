@@ -125,15 +125,9 @@ export default function Calculator (){
              <button onClick={() => handleOperationClick("*")} className="calculatorButtons">x</button>
              <button onClick={() => handleOperationClick("/")} className="calculatorButtons">/</button>
        </div>
-<input type="text" value={display} readOnly /> 
+<input type="text" value={display} className="valueDisplay" readOnly /> 
 
-      <div>
-        First Number: {firstNumber}
-        <br />
-        Second Number: {secondNumber}
-        <br />
-        Operation: {operation}
-      </div>
+      
         </div>
     
 )
